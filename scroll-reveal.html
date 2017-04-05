@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html  >
+<head>
+	<title>learning Scroll reveal</title>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+	<!-- Latest compiled Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+	<div class="container-fluid full">
+		<div> 
+
+		</div>
+	</div>
+	<div class="container-fluid" id="second-page">
+		<div class="row">
+			<div class="col-md-7">
+			</div>
+			<div class="col-md-5">
+				<img class="image" src="./img/strategy.png">
+			</div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+	<script type="text/javascript">
+		window.sr = ScrollReveal({ reset: true, origin: 'right' });
+		sr.reveal('.image');
+		//sr.reveal('.bar');
+	</script>
+	<script type="text/javascript">
+		var x = window.innerHeight;
+		console.log(x);
+		var y = x + "px";
+		$(".full").css("height","y");
+
+		$(window).resize(function(){
+			var x = window.innerHeight;
+			console.log(x);
+			var y = x + "px";
+			$(".full").css("height","y");			
+		});
+
+		$(document).keydown(function(e){
+			switch(e.which)
+			{
+				//left
+				case 37 : 
+				break;
+				//up
+				case 38 :
+				break;
+				//right
+				case 39 : 
+						console.log('right key pressed');
+						$(window).scrollTop($('#second-page').offset().top);	
+				break;
+				//down
+				case 40 :
+						console.log('down key pressed');
+
+				}
+			
+		});
+	</script>
+</body>
+</html>
